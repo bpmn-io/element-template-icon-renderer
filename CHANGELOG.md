@@ -6,6 +6,10 @@ All notable changes to [@bpmn-io/element-templates-icon-renderer](https://github
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.1.1
+
+* `FIX`: add correct project URL
+
 ## 0.1.0
 
 _Initial version._
