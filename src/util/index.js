@@ -3,10 +3,6 @@ import {
   is
 } from 'bpmn-js/lib/util/ModelUtil';
 
-export function getElementTemplate(element) {
-  return getBusinessObject(element).get('zeebe:modelerTemplate');
-}
-
 export function getModelerTemplateIcon(element) {
   const modelerTemplateIcon = findExtension(element, 'zeebe:ModelerTemplateIcon');
   return modelerTemplateIcon && modelerTemplateIcon.get('body');

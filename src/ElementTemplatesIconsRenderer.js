@@ -17,7 +17,6 @@ import {
 } from 'tiny-svg';
 
 import {
-  getElementTemplate,
   getModelerTemplateIcon
 } from './util';
 
@@ -45,7 +44,6 @@ IconsRenderer.prototype.canRender = function(element) {
 
   return (
     is(element, 'bpmn:Task') &&
-    !!getElementTemplate(element) &&
     !!getModelerTemplateIcon(element)
   );
 };
