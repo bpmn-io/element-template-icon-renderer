@@ -25,11 +25,9 @@ var HIGH_PRIORITY = 1250;
 
 export default function IconsRenderer(
     bpmnRenderer,
-    config,
     eventBus
 ) {
   this._bpmnRenderer = bpmnRenderer;
-  this._config = config || {};
 
   BaseRenderer.call(this, eventBus, HIGH_PRIORITY);
 }
@@ -70,6 +68,5 @@ IconsRenderer.prototype.drawShape = function(parentGfx, element) {
 
 IconsRenderer.$inject = [
   'bpmnRenderer',
-  'config.bpmnRenderer',
-  'eventBus',
+  'eventBus'
 ];
