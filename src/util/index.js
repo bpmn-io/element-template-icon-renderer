@@ -4,14 +4,14 @@ import {
 } from 'bpmn-js/lib/util/ModelUtil';
 
 export function getModelerTemplateIcon(element) {
-  const modelerTemplateIcon = findExtension(element, 'zeebe:ModelerTemplateIcon');
-  return modelerTemplateIcon && modelerTemplateIcon.get('body');
+  var modelerTemplateIcon = findExtension(element, 'zeebe:ModelerTemplateIcon');
+  return modelerTemplateIcon && (modelerTemplateIcon.$body || modelerTemplateIcon.body);
 }
 
 export function findExtension(element, type) {
-  const businessObject = getBusinessObject(element);
+  var businessObject = getBusinessObject(element);
 
-  let extensionElements;
+  var extensionElements;
 
   if (is(businessObject, 'bpmn:ExtensionElements')) {
     extensionElements = businessObject;
@@ -24,6 +24,8 @@ export function findExtension(element, type) {
   }
 
   return extensionElements.get('values').find((value) => {
-    return is(value, type);
+
+    // make sure we can read the model without moddle descriptors to be required
+    return value && value.$type.toLowerCase() === type.toLowerCase();
   });
 }

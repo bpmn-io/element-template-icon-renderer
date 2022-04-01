@@ -82,6 +82,53 @@ describe('elementTemplatesIconsRenderer', function() {
       expect(modeler.get('elementTemplatesIconsRenderer')).to.exist;
     });
 
+
+    it('should work without moddle descriptors', async function() {
+
+      // given
+      const viewer = new BpmnViewer({
+        container: 'body',
+        additionalModules: [ RendererModule ]
+      });
+
+      await viewer.importXML(diagramXML);
+
+      const elementRegistry = viewer.get('elementRegistry');
+      const element = elementRegistry.get('SendGridTask');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+    });
+
+
+    it('should work with moddle descriptors', async function() {
+
+      // given
+      const viewer = new BpmnViewer({
+        container: 'body',
+        additionalModules: [ RendererModule ],
+        moddleExtensions: { zeebe: zeebeModdleDescriptors }
+      });
+
+      await viewer.importXML(diagramXML);
+
+      const elementRegistry = viewer.get('elementRegistry');
+      const element = elementRegistry.get('SendGridTask');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+    });
+
   });
 
 
