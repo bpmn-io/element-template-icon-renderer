@@ -134,7 +134,7 @@ describe('elementTemplatesIconsRenderer', function() {
     }));
 
 
-    it('should NOT render - no template', inject(function(elementRegistry) {
+    it('should render - no template', inject(function(elementRegistry) {
 
       // given
       const element = elementRegistry.get('NoTemplate');
@@ -145,7 +145,8 @@ describe('elementTemplatesIconsRenderer', function() {
       const iconGfx = getImage(gfx);
 
       // then
-      expect(iconGfx).to.not.exist;
+      expect(iconGfx).to.exist;
+      expect(getHref(iconGfx)).to.eql(getModelerTemplateIcon(element));
     }));
 
 
