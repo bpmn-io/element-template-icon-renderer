@@ -6,6 +6,10 @@ All notable changes to [@bpmn-io/element-templates-icon-renderer](https://github
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.2.0
+
+* `FEAT`: enforce 18x18 icon size ([#5](https://github.com/bpmn-io/element-templates-icons-renderer/pull/5))
+
 ## 0.1.2
 
 * `FIX`: move `modelerTemplateIcon` to property ([#3](https://github.com/bpmn-io/element-templates-icons-renderer/pull/3))
