@@ -162,6 +162,11 @@ describe('elementTemplatesIconsRenderer', function() {
       // then
       expect(iconGfx).to.exist;
       expect(getHref(iconGfx)).to.eql(getModelerTemplateIcon(element));
+
+      expect(svgAttr(iconGfx, 'width')).to.eql('18');
+      expect(svgAttr(iconGfx, 'height')).to.eql('18');
+      expect(svgAttr(iconGfx, 'x')).to.eql('5');
+      expect(svgAttr(iconGfx, 'y')).to.eql('5');
     }));
 
 

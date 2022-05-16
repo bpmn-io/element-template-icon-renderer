@@ -57,8 +57,10 @@ IconsRenderer.prototype.drawShape = function(parentGfx, element) {
   var icon = svgCreate('image');
   svgAttr(icon, {
     href: modelerTemplateIcon,
-    x: 4,
-    y: 4
+    x: 5,
+    y: 5,
+    width: 18,
+    height: 18
   });
 
   svgAppend(parentGfx, icon);
