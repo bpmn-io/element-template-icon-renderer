@@ -6,6 +6,12 @@ All notable changes to [@bpmn-io/element-templates-icon-renderer](https://github
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.3.0
+
+* `DEPS`: support `bpmn-js@10`
+* `DEPS`: bump utility dependencies
+* `CHORE`: make `bpmn-js` and `diagram-js` peer dependencies
+
 ## 0.2.0
 
 * `FEAT`: enforce 18x18 icon size ([#5](https://github.com/bpmn-io/element-templates-icons-renderer/pull/5))
