@@ -43,8 +43,8 @@
   "devDependencies": {
     "chai": "^4.3.6",
     "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
-    "eslint-plugin-bpmn-io": "^0.13.0",
+    "eslint": "^8.24.0",
+    "eslint-plugin-bpmn-io": "^0.16.0",
     "karma": "^6.4.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.1",
