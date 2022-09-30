@@ -71,5 +71,6 @@
   "peerDependencies": {
     "bpmn-js": ">= 8",
     "diagram-js": ">= 7"
-  }
+  },
+  "sideEffects": false
 }
