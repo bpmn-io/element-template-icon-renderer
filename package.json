@@ -36,10 +36,6 @@
     }
   ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bpmn-io/element-templates-icons-renderer/issues"
-  },
-  "homepage": "https://github.com/bpmn-io/element-templates-icons-renderer#readme",
   "devDependencies": {
     "bpmn-js": "^10.1.0",
     "chai": "^4.3.6",
