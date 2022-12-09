@@ -51,11 +51,9 @@ insertCSS(
 );
 
 
-describe('elementTemplatesIconsRenderer', function() {
-
+describe('elementTemplateIconRenderer', function() {
 
   describe('integration support', function() {
-
 
     it('should work with viewer', function() {
 
@@ -66,7 +64,7 @@ describe('elementTemplatesIconsRenderer', function() {
       });
 
       // then
-      expect(viewer.get('elementTemplatesIconsRenderer')).to.exist;
+      expect(viewer.get('elementTemplateIconRenderer')).to.exist;
     });
 
 
@@ -79,7 +77,7 @@ describe('elementTemplatesIconsRenderer', function() {
       });
 
       // then
-      expect(modeler.get('elementTemplatesIconsRenderer')).to.exist;
+      expect(modeler.get('elementTemplateIconRenderer')).to.exist;
     });
 
 

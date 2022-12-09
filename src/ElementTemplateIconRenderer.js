@@ -23,7 +23,7 @@ import {
 var HIGH_PRIORITY = 1250;
 
 
-export default function IconsRenderer(
+export default function ElementTemplateIconRenderer(
     config,
     bpmnRenderer,
     eventBus) {
@@ -35,9 +35,9 @@ export default function IconsRenderer(
   BaseRenderer.call(this, eventBus, HIGH_PRIORITY);
 }
 
-inherits(IconsRenderer, BaseRenderer);
+inherits(ElementTemplateIconRenderer, BaseRenderer);
 
-IconsRenderer.prototype.canRender = function(element) {
+ElementTemplateIconRenderer.prototype.canRender = function(element) {
 
   if (isLabel(element)) {
     return false;
@@ -48,11 +48,11 @@ IconsRenderer.prototype.canRender = function(element) {
   );
 };
 
-IconsRenderer.prototype._getIcon = function(element) {
+ElementTemplateIconRenderer.prototype._getIcon = function(element) {
   return getModelerTemplateIcon(element, this._iconProperty);
 };
 
-IconsRenderer.prototype.drawShape = function(parentGfx, element) {
+ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element) {
 
   var renderer = this._bpmnRenderer.handlers['bpmn:Task'];
 
@@ -74,7 +74,7 @@ IconsRenderer.prototype.drawShape = function(parentGfx, element) {
   return gfx;
 };
 
-IconsRenderer.$inject = [
+ElementTemplateIconRenderer.$inject = [
   'config.elementTemplateIconRenderer',
   'bpmnRenderer',
   'eventBus'
