@@ -1,7 +1,7 @@
 {
-  "name": "@bpmn-io/element-templates-icons-renderer",
+  "name": "@bpmn-io/element-template-icon-renderer",
   "version": "0.3.0",
-  "description": "A bpmn-js extension to render element templates icons.",
+  "description": "A bpmn-js extension to render element templates icons",
   "main": "src/index.js",
   "publishConfig": {
     "access": "public"
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/bpmn-io/element-templates-icons-renderer.git"
+    "url": "git+ssh://git@github.com/bpmn-io/element-template-icon-renderer.git"
   },
   "keywords": [
     "element-templates",

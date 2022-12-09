@@ -1,6 +1,6 @@
-import ElementTemplatesIconsRenderer from './ElementTemplatesIconsRenderer';
+import ElementTemplateIconRenderer from './ElementTemplateIconRenderer';
 
 export default {
-  __init__: [ 'elementTemplatesIconsRenderer' ],
-  elementTemplatesIconsRenderer: [ 'type', ElementTemplatesIconsRenderer ]
+  __init__: [ 'elementTemplateIconRenderer' ],
+  elementTemplateIconRenderer: [ 'type', ElementTemplateIconRenderer ]
 };
