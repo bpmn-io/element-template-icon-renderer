@@ -2,7 +2,16 @@ import {
   getBusinessObject
 } from 'bpmn-js/lib/util/ModelUtil';
 
-export function getModelerTemplateIcon(element) {
-  var modelerTemplateIcon = getBusinessObject(element).get('zeebe:modelerTemplateIcon');
-  return modelerTemplateIcon;
+/**
+ * Get icon defined on a moddle element.
+ *
+ * @param { ModdleElement } element
+ * @param { string } iconProperty
+ *
+ * @return { string }
+ */
+export function getModelerTemplateIcon(element, iconProperty) {
+  iconProperty = iconProperty || 'zeebe:modelerTemplateIcon';
+
+  return getBusinessObject(element).get(iconProperty);
 }

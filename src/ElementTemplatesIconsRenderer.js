@@ -24,10 +24,13 @@ var HIGH_PRIORITY = 1250;
 
 
 export default function IconsRenderer(
+    config,
     bpmnRenderer,
-    eventBus
-) {
+    eventBus) {
+
   this._bpmnRenderer = bpmnRenderer;
+
+  this._iconProperty = config && config.iconProperty;
 
   BaseRenderer.call(this, eventBus, HIGH_PRIORITY);
 }
@@ -40,10 +43,13 @@ IconsRenderer.prototype.canRender = function(element) {
     return false;
   }
 
-  return (
-    is(element, 'bpmn:Task') &&
-    !!getModelerTemplateIcon(element)
+  return !!(
+    is(element, 'bpmn:Task') && this._getIcon(element)
   );
+};
+
+IconsRenderer.prototype._getIcon = function(element) {
+  return getModelerTemplateIcon(element, this._iconProperty);
 };
 
 IconsRenderer.prototype.drawShape = function(parentGfx, element) {
@@ -52,23 +58,24 @@ IconsRenderer.prototype.drawShape = function(parentGfx, element) {
 
   var gfx = renderer(parentGfx, element);
 
-  var modelerTemplateIcon = getModelerTemplateIcon(element);
+  var icon = this._getIcon(element);
 
-  var icon = svgCreate('image');
-  svgAttr(icon, {
-    href: modelerTemplateIcon,
+  var img = svgCreate('image');
+  svgAttr(img, {
+    href: icon,
     x: 5,
     y: 5,
     width: 18,
     height: 18
   });
 
-  svgAppend(parentGfx, icon);
+  svgAppend(parentGfx, img);
 
   return gfx;
 };
 
 IconsRenderer.$inject = [
+  'config.elementTemplateIconRenderer',
   'bpmnRenderer',
   'eventBus'
 ];
