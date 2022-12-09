@@ -23,6 +23,8 @@
     <bpmn:serviceTask id="NoTemplate" zeebe:modelerTemplateIcon="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.686 12.862c-.616 0-1.169.276-1.547.71l-.97-.693c.103-.287.162-.594.162-.916a2.7 2.7 0 0 0-.157-.901l.968-.687c.379.432.93.707 1.544.707 1.138 0 2.064-.936 2.064-2.086s-.926-2.086-2.064-2.086c-1.137 0-2.063.936-2.063 2.086 0 .206.03.405.086.593l-.969.686a2.658 2.658 0 0 0-1.65-.969v-1.18a2.084 2.084 0 0 0 1.64-2.04c0-1.15-.927-2.086-2.065-2.086-1.137 0-2.063.936-2.063 2.086 0 .99.686 1.818 1.602 2.031v1.195A2.688 2.688 0 0 0 8 11.962a2.69 2.69 0 0 0 2.223 2.655v1.261a2.084 2.084 0 0 0-1.621 2.036c0 1.15.926 2.086 2.063 2.086 1.138 0 2.064-.936 2.064-2.086 0-.996-.695-1.83-1.62-2.036v-1.261a2.66 2.66 0 0 0 1.622-.954l.976.698a2.096 2.096 0 0 0-.084.587c0 1.15.926 2.086 2.063 2.086 1.138 0 2.064-.936 2.064-2.086s-.926-2.086-2.064-2.086Zm0-4.877c.552 0 1 .454 1 1.011 0 .558-.448 1.011-1 1.011-.551 0-1-.453-1-1.01 0-.558.449-1.012 1-1.012Zm-6.021-1.9c0-.557.449-1.01 1-1.01.552 0 1.001.453 1.001 1.01 0 .558-.449 1.012-1 1.012a1.007 1.007 0 0 1-1.001-1.011Zm2.001 11.83c0 .557-.449 1.01-1 1.01a1.007 1.007 0 0 1-1.001-1.01c0-.558.449-1.012 1-1.012.552 0 1.001.454 1.001 1.011Zm-1-4.542c-.77 0-1.396-.633-1.396-1.41 0-.778.626-1.41 1.395-1.41.77 0 1.396.632 1.396 1.41 0 .777-.626 1.41-1.396 1.41Zm5.02 2.586c-.551 0-1-.454-1-1.011 0-.558.449-1.011 1-1.011.552 0 1 .453 1 1.01 0 .558-.448 1.012-1 1.012Z' fill='%23505562'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M20.642 6.722 12.25 1.876a.5.5 0 0 0-.5 0L3.358 6.722a.5.5 0 0 0-.25.433v9.69a.5.5 0 0 0 .25.433l8.392 4.846a.5.5 0 0 0 .5 0l8.392-4.846a.5.5 0 0 0 .25-.433v-9.69a.5.5 0 0 0-.25-.433ZM13 .577a2 2 0 0 0-2 0L2.608 5.423a2 2 0 0 0-1 1.732v9.69a2 2 0 0 0 1 1.732L11 23.423a2 2 0 0 0 2 0l8.392-4.846a2 2 0 0 0 1-1.732v-9.69a2 2 0 0 0-1-1.732L13 .577Z' fill='%23505562'/%3E%3C/svg%3E">
     </bpmn:serviceTask>
     <bpmn:serviceTask id="NoIcon" zeebe:modelerTemplate="icon.template.noIcon" />
+    <bpmn:serviceTask id="OtherVendorIconTask" name="OtherVendorIconTask" xmlns:foo="http://localhost" foo:icon="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2210%22%20width%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%20shape-rendering%3D%22geometricPrecision%22%3E%3Ctitle%3ESlack%3C%2Ftitle%3E%3Cg%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20L0%2C10%20L10%2C10%20L10%2C0%20z%22%20fill%3D%22%23ecb12f%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+    </bpmn:serviceTask>
     <bpmn:startEvent id="StartEvent_1" name="start event" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -59,6 +61,9 @@
       </bpmndi:BPMNShape>
        <bpmndi:BPMNShape id="NoIcon_di" bpmnElement="NoIcon">
         <dc:Bounds x="460" y="310" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="OtherVendorIconTask_di" bpmnElement="OtherVendorIconTask">
+        <dc:Bounds x="460" y="510" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="StartEvent_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="620" y="77" width="36" height="36" />

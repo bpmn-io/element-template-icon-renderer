@@ -27,9 +27,25 @@ const viewer = new BpmnViewer({
 });
 ```
 
+Optionally you may configure where you read your icons from:
+
+```javascript
+import ElementTemplateIconRenderer from '@bpmn-io/element-template-icon-renderer';
+
+const viewer = new BpmnViewer({
+  additionalModules: [
+    ...,
+    ElementTemplateIconRenderer
+  ],
+  elementTemplateIconRender: {
+    iconProperty: 'foo:icon' // read from <bpmn:task foo:icon="..." />
+  }
+});
+```
+
 In case you want to model with the element template icons, make sure you include the underlying [`zeebe-bpmn-moddle`](https://github.com/camunda-cloud/zeebe-bpmn-moddle) descriptors.
 
-```js
+```javascript
 import zeebeModdle from 'zeebe-bpmn-moddle/resources/zeebe.json';
 
 const modeler = new BpmnModeler({

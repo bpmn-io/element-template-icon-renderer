@@ -83,7 +83,7 @@ describe('elementTemplatesIconsRenderer', function() {
     });
 
 
-    it('should work without moddle descriptors', async function() {
+    it('should work without moddle descriptors (zeebe)', async function() {
 
       // given
       const viewer = new BpmnViewer({
@@ -106,7 +106,7 @@ describe('elementTemplatesIconsRenderer', function() {
     });
 
 
-    it('should work with moddle descriptors', async function() {
+    it('should work with moddle descriptors (zeebe)', async function() {
 
       // given
       const viewer = new BpmnViewer({
@@ -119,6 +119,32 @@ describe('elementTemplatesIconsRenderer', function() {
 
       const elementRegistry = viewer.get('elementRegistry');
       const element = elementRegistry.get('SendGridTask');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+    });
+
+
+    it('should work with custom icon property', async function() {
+
+      // given
+      const viewer = new BpmnViewer({
+        container: 'body',
+        elementTemplateIconRenderer: {
+          iconProperty: 'foo:icon'
+        },
+        additionalModules: [ RendererModule ]
+      });
+
+      await viewer.importXML(diagramXML);
+
+      const elementRegistry = viewer.get('elementRegistry');
+      const element = elementRegistry.get('OtherVendorIconTask');
 
       const gfx = elementRegistry.getGraphics(element);
 
