@@ -226,6 +226,21 @@ describe('elementTemplateIconRenderer', function() {
     }));
 
 
+    it('should render - start event', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('StartEvent_1');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+    }));
+
+
     it('should NOT render - label', inject(function(elementRegistry) {
 
       // given
@@ -241,10 +256,10 @@ describe('elementTemplateIconRenderer', function() {
     }));
 
 
-    it('should NOT render - start event', inject(function(elementRegistry) {
+    it('should NOT render - end event', inject(function(elementRegistry) {
 
       // given
-      const element = elementRegistry.get('StartEvent_1');
+      const element = elementRegistry.get('EndEvent');
 
       const gfx = elementRegistry.getGraphics(element);
 
