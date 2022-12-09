@@ -3,12 +3,14 @@ import inherits from 'inherits';
 import BaseRenderer from 'diagram-js/lib/draw/BaseRenderer';
 
 import {
-  is
+  is,
+  isAny
 } from 'bpmn-js/lib/util/ModelUtil';
 
 import {
   isLabel
 } from 'bpmn-js/lib/util/LabelUtil';
+
 
 import {
   append as svgAppend,
@@ -44,7 +46,7 @@ ElementTemplateIconRenderer.prototype.canRender = function(element) {
   }
 
   return !!(
-    is(element, 'bpmn:Task') && this._getIcon(element)
+    isAny(element, [ 'bpmn:Task', 'bpmn:StartEvent' ]) && this._getIcon(element)
   );
 };
 
@@ -54,19 +56,30 @@ ElementTemplateIconRenderer.prototype._getIcon = function(element) {
 
 ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element) {
 
-  var renderer = this._bpmnRenderer.handlers['bpmn:Task'];
+  var renderer = this._bpmnRenderer.handlers[
+    [ 'bpmn:Task', 'bpmn:StartEvent' ].find(t => is(element, t))
+  ];
 
   var gfx = renderer(parentGfx, element);
 
   var icon = this._getIcon(element);
 
+  var size = 18;
+
+  var padding = is(element, 'bpmn:Task') ? {
+    x: 5,
+    y: 5
+  } : {
+    x: (element.width - size) / 2,
+    y: (element.height - size) / 2
+  };
+
   var img = svgCreate('image');
   svgAttr(img, {
     href: icon,
-    x: 5,
-    y: 5,
-    width: 18,
-    height: 18
+    width: size,
+    height: size,
+    ...padding
   });
 
   svgAppend(parentGfx, img);
