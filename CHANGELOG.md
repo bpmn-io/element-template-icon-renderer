@@ -8,8 +8,8 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 0.4.0
 
-* `FEAT`: generalize utility (allow to choose icon property) ([#https://github.com/bpmn-io/element-template-icon-renderer/issues/8](https://github.com/bpmn-io/element-template-icon-renderer/issues/8))
-* `FEAT`: support icons on blank start events ([#https://github.com/bpmn-io/element-template-icon-renderer/issues/12](https://github.com/bpmn-io/element-template-icon-renderer/issues/12))
+* `FEAT`: generalize utility (allow to choose icon property) ([#8](https://github.com/bpmn-io/element-template-icon-renderer/issues/8))
+* `FEAT`: support icons on blank start events ([#12](https://github.com/bpmn-io/element-template-icon-renderer/issues/12))
 * `CHORE`: rename to `@bpmn-io/element-template-icon-renderer` ([#10](https://github.com/bpmn-io/element-template-icon-renderer/issues/10))
 
 ### Breaking Changes
