@@ -3,6 +3,7 @@ import inherits from 'inherits';
 import BaseRenderer from 'diagram-js/lib/draw/BaseRenderer';
 
 import {
+  getBusinessObject,
   is,
   isAny
 } from 'bpmn-js/lib/util/ModelUtil';
@@ -46,7 +47,7 @@ ElementTemplateIconRenderer.prototype.canRender = function(element) {
   }
 
   return !!(
-    isAny(element, [ 'bpmn:Task', 'bpmn:StartEvent' ]) && this._getIcon(element)
+    isAny(element, [ 'bpmn:Task', 'bpmn:StartEvent' ]) && !hasEventDefinition(element) && this._getIcon(element)
   );
 };
 
@@ -92,3 +93,12 @@ ElementTemplateIconRenderer.$inject = [
   'bpmnRenderer',
   'eventBus'
 ];
+
+
+// helpers //////////////
+
+export function hasEventDefinition(element, eventType) {
+  const businessObject = getBusinessObject(element);
+
+  return (businessObject.eventDefinitions || []).length;
+}
