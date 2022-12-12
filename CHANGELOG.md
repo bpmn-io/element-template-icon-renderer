@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to [@bpmn-io/element-templates-icon-renderer](https://github.com/bpmn-io/element-templates-icon-renderer) are documented here. We use [semantic versioning](http://semver.org/) for releases.
+All notable changes to [@bpmn-io/element-template-icon-renderer](https://github.com/bpmn-io/element-template-icon-renderer) are documented here. We use [semantic versioning](http://semver.org/) for releases.
 
 ## Unreleased
 
@@ -24,11 +24,11 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 0.2.0
 
-* `FEAT`: enforce 18x18 icon size ([#5](https://github.com/bpmn-io/element-templates-icons-renderer/pull/5))
+* `FEAT`: enforce 18x18 icon size ([#5](https://github.com/bpmn-io/element-template-icon-renderer/pull/5))
 
 ## 0.1.2
 
-* `FIX`: move `modelerTemplateIcon` to property ([#3](https://github.com/bpmn-io/element-templates-icons-renderer/pull/3))
+* `FIX`: move `modelerTemplateIcon` to property ([#3](https://github.com/bpmn-io/element-template-icon-renderer/pull/3))
 
 ## 0.1.1
 
