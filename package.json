@@ -65,7 +65,7 @@
     "zeebe-bpmn-moddle": "^0.15.0"
   },
   "dependencies": {
-    "inherits": "^2.0.4",
+    "inherits-browser": "^0.1.0",
     "tiny-svg": "^3.0.0"
   },
   "peerDependencies": {
