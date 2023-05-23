@@ -6,6 +6,11 @@ All notable changes to [@bpmn-io/element-template-icon-renderer](https://github.
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.5.0
+
+* `FEAT`: support custom icons on _all_ events ([#6](https://github.com/bpmn-io/element-template-icon-renderer/issues/6))
+* `DEPS`: update dependencies
+
 ## 0.4.0
 
 * `FEAT`: generalize utility (allow to choose icon property) ([#8](https://github.com/bpmn-io/element-template-icon-renderer/issues/8))
