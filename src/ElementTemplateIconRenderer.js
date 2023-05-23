@@ -47,7 +47,7 @@ ElementTemplateIconRenderer.prototype.canRender = function(element) {
   }
 
   return !!(
-    isAny(element, [ 'bpmn:Task', 'bpmn:StartEvent' ]) && !hasEventDefinition(element) && this._getIcon(element)
+    isAny(element, [ 'bpmn:Task', 'bpmn:Event' ]) && this._getIcon(element)
   );
 };
 
@@ -58,10 +58,16 @@ ElementTemplateIconRenderer.prototype._getIcon = function(element) {
 ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element) {
 
   var renderer = this._bpmnRenderer.handlers[
-    [ 'bpmn:Task', 'bpmn:StartEvent' ].find(t => is(element, t))
+    [
+      'bpmn:Task',
+      'bpmn:StartEvent',
+      'bpmn:IntermediateEvent',
+      'bpmn:BoundaryEvent',
+      'bpmn:EndEvent'
+    ].find(t => is(element, t))
   ];
 
-  var gfx = renderer(parentGfx, element);
+  var gfx = renderer(parentGfx, element, { renderIcon: false });
 
   var icon = this._getIcon(element);
 

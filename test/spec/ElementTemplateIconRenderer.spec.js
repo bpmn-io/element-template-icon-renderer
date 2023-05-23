@@ -241,7 +241,7 @@ describe('elementTemplateIconRenderer', function() {
     }));
 
 
-    it('should NOT render - typed start event', inject(function(elementRegistry) {
+    it('should render - typed start event', inject(function(elementRegistry) {
 
       // given
       const element = elementRegistry.get('StartEvent_Message');
@@ -252,7 +252,7 @@ describe('elementTemplateIconRenderer', function() {
       const iconGfx = getImage(gfx);
 
       // then
-      expect(iconGfx).to.not.exist;
+      expect(iconGfx).to.exist;
     }));
 
 
@@ -271,7 +271,7 @@ describe('elementTemplateIconRenderer', function() {
     }));
 
 
-    it('should NOT render - end event', inject(function(elementRegistry) {
+    it('should render - typed end event', inject(function(elementRegistry) {
 
       // given
       const element = elementRegistry.get('EndEvent');
@@ -282,7 +282,37 @@ describe('elementTemplateIconRenderer', function() {
       const iconGfx = getImage(gfx);
 
       // then
-      expect(iconGfx).to.not.exist;
+      expect(iconGfx).to.exist;
+    }));
+
+
+    it('should render - end event', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('EndEvent');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+    }));
+
+
+    it('should render - boundary event', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('BoundaryEvent_Error');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
     }));
 
 
