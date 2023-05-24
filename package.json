@@ -37,7 +37,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "bpmn-js": "^13.0.8",
+    "bpmn-js": "^13.1.0",
     "chai": "^4.3.6",
     "cross-env": "^7.0.3",
     "diagram-js": "^12.1.0",
