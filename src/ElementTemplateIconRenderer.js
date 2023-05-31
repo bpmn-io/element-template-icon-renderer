@@ -59,11 +59,12 @@ ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element) {
 
   var renderer = this._bpmnRenderer.handlers[
     [
-      'bpmn:Task',
-      'bpmn:StartEvent',
-      'bpmn:IntermediateEvent',
       'bpmn:BoundaryEvent',
-      'bpmn:EndEvent'
+      'bpmn:EndEvent',
+      'bpmn:IntermediateCatchEvent',
+      'bpmn:IntermediateThrowEvent',
+      'bpmn:StartEvent',
+      'bpmn:Task'
     ].find(t => is(element, t))
   ];
 
