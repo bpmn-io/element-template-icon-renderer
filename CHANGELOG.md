@@ -6,6 +6,10 @@ All notable changes to [@bpmn-io/element-template-icon-renderer](https://github.
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.5.1
+
+* `FIX`: get handler for intermediate catch and throw events ([#16](https://github.com/bpmn-io/element-template-icon-renderer/pull/16))
+
 ## 0.5.0
 
 * `FEAT`: support custom icons on _all_ events ([#6](https://github.com/bpmn-io/element-template-icon-renderer/issues/6))
