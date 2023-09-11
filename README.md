@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/bpmn-io/element-template-icon-renderer/actions/workflows/CI.yml/badge.svg)](https://github.com/bpmn-io/element-template-icon-renderer/actions/workflows/CI.yml)
 
-A [bpmn-js](https://github.com/bpmn-io/bpmn-js) extension to render [element template](https://docs.camunda.io/docs/components/modeler/desktop-modeler/element-templates/about-templates/) icons.
+A [bpmn-js](https://github.com/bpmn-io/bpmn-js) extension to render [element template](https://github.com/bpmn-io/element-templates/) icons.
 
 ![Screenshot](./docs/screenshot.png)
 
