@@ -330,6 +330,30 @@ describe('elementTemplateIconRenderer', function() {
       expect(iconGfx).to.not.exist;
     }));
 
+
+    it('should pass attrs', inject(function(elementRegistry, eventBus, graphicsFactory) {
+
+      // given
+      const element = elementRegistry.get('SendGridTask'),
+            gfx = elementRegistry.getGraphics(element);
+
+      eventBus.on([ 'render.shape', 'render.connection' ], 2000, (event, context) => {
+        context.attrs = {
+          ...context.attrs,
+          stroke: 'fuchsia'
+        };
+      });
+
+      // when
+      graphicsFactory.update('shape', element, gfx);
+
+      // then
+      const visuals = getVisuals(gfx);
+
+      expect(visuals).to.exist;
+      expect(svgAttr(domQuery('rect', visuals), 'stroke')).to.eql('fuchsia');
+    }));
+
   });
 
 });
