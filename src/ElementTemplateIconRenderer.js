@@ -55,7 +55,7 @@ ElementTemplateIconRenderer.prototype._getIcon = function(element) {
   return getModelerTemplateIcon(element, this._iconProperty);
 };
 
-ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element) {
+ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element, attrs = {}) {
 
   var renderer = this._bpmnRenderer.handlers[
     [
@@ -68,7 +68,7 @@ ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element) {
     ].find(t => is(element, t))
   ];
 
-  var gfx = renderer(parentGfx, element, { renderIcon: false });
+  var gfx = renderer(parentGfx, element, { ...attrs, renderIcon: false });
 
   var icon = this._getIcon(element);
 
