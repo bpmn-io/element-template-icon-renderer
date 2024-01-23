@@ -37,7 +37,7 @@ const viewer = new BpmnViewer({
     ...,
     ElementTemplateIconRenderer
   ],
-  elementTemplateIconRender: {
+  elementTemplateIconRenderer: {
     iconProperty: 'foo:icon' // read from <bpmn:task foo:icon="..." />
   }
 });
