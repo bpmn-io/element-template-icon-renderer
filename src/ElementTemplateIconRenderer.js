@@ -4,7 +4,6 @@ import BaseRenderer from 'diagram-js/lib/draw/BaseRenderer';
 
 import {
   getBusinessObject,
-  is,
   isAny
 } from 'bpmn-js/lib/util/ModelUtil';
 
@@ -23,9 +22,20 @@ import {
   getModelerTemplateIcon
 } from './util';
 
-var HIGH_PRIORITY = 1250;
+var HIGH_PRIORITY = 1250,
+    ICON_BOX_SIZE = 14,
+    ICON_CIRCLE_RADIUS = Math.ceil(ICON_BOX_SIZE / Math.sqrt(2)),
+    PADDING = {
+      x: 5,
+      y: 5
+    };
 
-
+/**
+ *
+ * @param {{ iconProperty?: string }|undefined} config
+ * @param {import('bpmn-js/lib/draw/BpmnRenderer').default} bpmnRenderer
+ * @param {import('diagram-js/lib/core/EventBus').default} eventBus
+ */
 export default function ElementTemplateIconRenderer(
     config,
     bpmnRenderer,
@@ -56,40 +66,36 @@ ElementTemplateIconRenderer.prototype._getIcon = function(element) {
 };
 
 ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element, attrs = {}) {
-
-  var renderer = this._bpmnRenderer.handlers[
-    [
-      'bpmn:BoundaryEvent',
-      'bpmn:EndEvent',
-      'bpmn:IntermediateCatchEvent',
-      'bpmn:IntermediateThrowEvent',
-      'bpmn:StartEvent',
-      'bpmn:Task'
-    ].find(t => is(element, t))
-  ];
-
-  var gfx = renderer(parentGfx, element, { ...attrs, renderIcon: false });
+  var gfx = this._bpmnRenderer.drawShape(parentGfx, element, attrs);
 
   var icon = this._getIcon(element);
 
-  var size = 18;
+  var size = ICON_BOX_SIZE,
+      r = ICON_CIRCLE_RADIUS;
 
-  var padding = is(element, 'bpmn:Task') ? {
-    x: 5,
-    y: 5
-  } : {
-    x: (element.width - size) / 2,
-    y: (element.height - size) / 2
+  var circleCenterPosition = {
+    x: element.width - PADDING.x,
+    y: PADDING.y
   };
+
+  var outline = svgCreate('circle', {
+    cx: circleCenterPosition.x,
+    cy: circleCenterPosition.y,
+    r,
+    fill: 'white',
+    stroke: 'black'
+  });
 
   var img = svgCreate('image');
   svgAttr(img, {
     href: icon,
     width: size,
     height: size,
-    ...padding
+    x: circleCenterPosition.x - size / 2,
+    y: circleCenterPosition.y - size / 2
   });
 
+  svgAppend(parentGfx, outline);
   svgAppend(parentGfx, img);
 
   return gfx;
