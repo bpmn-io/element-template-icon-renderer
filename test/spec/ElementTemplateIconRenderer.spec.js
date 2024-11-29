@@ -50,8 +50,7 @@ insertCSS(
   require('../test.css').default
 );
 
-const TOP_LEFT_TOLLERANCE = 8;
-const CENTER_TOLLERANCE = 0.5;
+const TOP_RIGHT_TOLLERANCE = 8;
 
 
 describe('elementTemplateIconRenderer', function() {
@@ -190,10 +189,10 @@ describe('elementTemplateIconRenderer', function() {
       expect(iconGfx).to.exist;
       expect(getHref(iconGfx)).to.eql(getModelerTemplateIcon(element));
 
-      expect(svgAttr(iconGfx, 'width')).to.eql('18');
-      expect(svgAttr(iconGfx, 'height')).to.eql('18');
-      expect(svgAttr(iconGfx, 'x')).to.eql('5');
-      expect(svgAttr(iconGfx, 'y')).to.eql('5');
+      expect(svgAttr(iconGfx, 'width')).to.eql('14');
+      expect(svgAttr(iconGfx, 'height')).to.eql('14');
+      expect(svgAttr(iconGfx, 'x')).to.eql('88');
+      expect(svgAttr(iconGfx, 'y')).to.eql('-2');
     }));
 
 
@@ -241,7 +240,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectCentered(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -257,7 +256,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectCentered(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -288,7 +287,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectCentered(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -304,7 +303,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectCentered(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -320,7 +319,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectCentered(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -336,7 +335,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectTopLeftCorner(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -352,7 +351,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectTopLeftCorner(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -368,7 +367,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectTopLeftCorner(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -384,7 +383,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectTopLeftCorner(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -400,7 +399,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectTopLeftCorner(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -416,7 +415,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectTopLeftCorner(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -432,7 +431,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
-      expectTopLeftCorner(iconGfx);
+      expectTopRightCorner(iconGfx);
     }));
 
 
@@ -497,21 +496,10 @@ function getHref(node) {
 /**
  * @param {SVGImageElement} image
  */
-function expectCentered(image) {
+function expectTopRightCorner(image) {
   const imageBBox = image.getBoundingClientRect();
   const elementBBox = image.closest('.djs-visual').getBoundingClientRect();
 
-  expect(imageBBox.left).to.be.closeTo(elementBBox.left + (elementBBox.width - imageBBox.width) / 2, CENTER_TOLLERANCE);
-  expect(imageBBox.top).to.be.closeTo(elementBBox.top + (elementBBox.height - imageBBox.height) / 2, CENTER_TOLLERANCE);
-}
-
-/**
- * @param {SVGImageElement} image
- */
-function expectTopLeftCorner(image) {
-  const imageBBox = image.getBoundingClientRect();
-  const elementBBox = image.closest('.djs-visual').getBoundingClientRect();
-
-  expect(imageBBox.left).to.be.closeTo(elementBBox.left, TOP_LEFT_TOLLERANCE);
-  expect(imageBBox.top).to.be.closeTo(elementBBox.top, TOP_LEFT_TOLLERANCE);
+  expect(imageBBox.right).to.be.closeTo(elementBBox.right, TOP_RIGHT_TOLLERANCE);
+  expect(imageBBox.top).to.be.closeTo(elementBBox.top, TOP_RIGHT_TOLLERANCE);
 }
