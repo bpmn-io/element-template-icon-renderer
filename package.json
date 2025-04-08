@@ -37,10 +37,10 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "bpmn-js": "^17.1.0",
+    "bpmn-js": "^18.4.0",
     "chai": "^4.3.6",
     "cross-env": "^7.0.3",
-    "diagram-js": "^14.2.0",
+    "diagram-js": "^15.2.4",
     "eslint": "^8.24.0",
     "eslint-plugin-bpmn-io": "^0.16.0",
     "karma": "^6.4.1",
