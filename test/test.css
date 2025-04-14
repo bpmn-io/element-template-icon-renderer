@@ -8,6 +8,11 @@ html, body, .modeler-container, .modeler-container > div {
 
 .test-container {
   height: 800px !important;
+
+  &:only-of-type {
+    height: calc(100% - 2px) !important;
+    margin: 0;
+  }
 }
 
 .test-content-container {
