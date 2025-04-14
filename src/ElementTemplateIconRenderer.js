@@ -47,7 +47,7 @@ ElementTemplateIconRenderer.prototype.canRender = function(element) {
   }
 
   return !!(
-    isAny(element, [ 'bpmn:Task', 'bpmn:Event' ]) && this._getIcon(element)
+    isAny(element, [ 'bpmn:Activity', 'bpmn:Event' ]) && this._getIcon(element)
   );
 };
 
@@ -60,11 +60,17 @@ ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element, a
   var renderer = this._bpmnRenderer.handlers[
     [
       'bpmn:BoundaryEvent',
+      'bpmn:CallActivity',
       'bpmn:EndEvent',
       'bpmn:IntermediateCatchEvent',
       'bpmn:IntermediateThrowEvent',
       'bpmn:StartEvent',
-      'bpmn:Task'
+      'bpmn:Task',
+
+      // specialized subprocess before general
+      'bpmn:AdHocSubProcess',
+      'bpmn:Transaction',
+      'bpmn:SubProcess'
     ].find(t => is(element, t))
   ];
 
@@ -74,7 +80,7 @@ ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element, a
 
   var size = 18;
 
-  var padding = is(element, 'bpmn:Task') ? {
+  var padding = is(element, 'bpmn:Activity') ? {
     x: 5,
     y: 5
   } : {
