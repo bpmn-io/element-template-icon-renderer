@@ -50,6 +50,9 @@ insertCSS(
   require('../test.css').default
 );
 
+const TOP_LEFT_TOLLERANCE = 8;
+const CENTER_TOLLERANCE = 0.5;
+
 
 describe('elementTemplateIconRenderer', function() {
 
@@ -238,6 +241,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
+      expectCentered(iconGfx);
     }));
 
 
@@ -253,6 +257,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
+      expectCentered(iconGfx);
     }));
 
 
@@ -283,6 +288,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
+      expectCentered(iconGfx);
     }));
 
 
@@ -298,6 +304,7 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
+      expectCentered(iconGfx);
     }));
 
 
@@ -313,6 +320,119 @@ describe('elementTemplateIconRenderer', function() {
 
       // then
       expect(iconGfx).to.exist;
+      expectCentered(iconGfx);
+    }));
+
+
+    it('should render - collapsed subprocess', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('SubProcessCollapsed');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+      expectTopLeftCorner(iconGfx);
+    }));
+
+
+    it('should render - expanded subprocess', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('SubProcessExpanded');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+      expectTopLeftCorner(iconGfx);
+    }));
+
+
+    it('should render - call activity', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('CallActivity');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+      expectTopLeftCorner(iconGfx);
+    }));
+
+
+    it('should render - transaction', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('Transaction');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+      expectTopLeftCorner(iconGfx);
+    }));
+
+
+    it('should render - collapsed ad-hoc subprocess', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('AdHocSubProcessCollapsed');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+      expectTopLeftCorner(iconGfx);
+    }));
+
+
+    it('should render - expanded ad-hoc subprocess', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('AdHocSubProcessExpanded');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+      expectTopLeftCorner(iconGfx);
+    }));
+
+
+    it('should render - event subprocess', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('EventSubProcess');
+
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+      expectTopLeftCorner(iconGfx);
     }));
 
 
@@ -372,4 +492,26 @@ function getImage(node) {
 
 function getHref(node) {
   return svgAttr(node, 'href');
+}
+
+/**
+ * @param {SVGImageElement} image
+ */
+function expectCentered(image) {
+  const imageBBox = image.getBoundingClientRect();
+  const elementBBox = image.closest('.djs-visual').getBoundingClientRect();
+
+  expect(imageBBox.left).to.be.closeTo(elementBBox.left + (elementBBox.width - imageBBox.width) / 2, CENTER_TOLLERANCE);
+  expect(imageBBox.top).to.be.closeTo(elementBBox.top + (elementBBox.height - imageBBox.height) / 2, CENTER_TOLLERANCE);
+}
+
+/**
+ * @param {SVGImageElement} image
+ */
+function expectTopLeftCorner(image) {
+  const imageBBox = image.getBoundingClientRect();
+  const elementBBox = image.closest('.djs-visual').getBoundingClientRect();
+
+  expect(imageBBox.left).to.be.closeTo(elementBBox.left, TOP_LEFT_TOLLERANCE);
+  expect(imageBBox.top).to.be.closeTo(elementBBox.top, TOP_LEFT_TOLLERANCE);
 }
