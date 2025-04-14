@@ -32,22 +32,22 @@ const singleStart = window.__env__ && window.__env__.SINGLE_START === 'renderer'
 
 insertCSS(
   'diagram.css',
-  require('bpmn-js/dist/assets/diagram-js.css')
+  require('bpmn-js/dist/assets/diagram-js.css').default
 );
 
 insertCSS(
   'bpmn-js.css',
-  require('bpmn-js/dist/assets/bpmn-js.css')
+  require('bpmn-js/dist/assets/bpmn-js.css').default
 );
 
 insertCSS(
   'bpmn-font.css',
-  require('bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css')
+  require('bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css').default
 );
 
 insertCSS(
   'test.css',
-  require('../test.css')
+  require('../test.css').default
 );
 
 
