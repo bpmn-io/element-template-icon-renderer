@@ -1,6 +1,6 @@
 {
   "name": "@bpmn-io/element-template-icon-renderer",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "A bpmn-js extension to render element templates icons",
   "main": "src/index.js",
   "publishConfig": {
