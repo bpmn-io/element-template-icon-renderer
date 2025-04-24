@@ -6,6 +6,10 @@ All notable changes to [@bpmn-io/element-template-icon-renderer](https://github.
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.0.0
+
+_Re-release of `v0.6.0`._
+
 ## 0.6.0
 
 * `FEAT`: render icons for all activities ([#20](https://github.com/bpmn-io/element-template-icon-renderer/issues/20), [#22](https://github.com/bpmn-io/element-template-icon-renderer/pull/22))
