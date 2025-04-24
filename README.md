@@ -72,4 +72,7 @@ npm start
 * [Issues](https://github.com/bpmn-io/element-template-icon-renderer/issues)
 * [Changelog](./CHANGELOG.md)
 
+## License
+
+MIT
 
