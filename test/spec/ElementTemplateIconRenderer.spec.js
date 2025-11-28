@@ -5,6 +5,7 @@ import BpmnViewer from 'bpmn-js/lib/Viewer';
 import BpmnModeler from 'bpmn-js/lib/Modeler';
 
 import {
+  bootstrapModeler,
   bootstrapViewer,
   inject,
   insertCSS
@@ -54,6 +55,29 @@ const TOP_RIGHT_TOLLERANCE = 8;
 
 
 describe('elementTemplateIconRenderer', function() {
+
+  describe('example', function() {
+
+    beforeEach(bootstrapModeler(diagramXML, {
+      additionalModules: [ RendererModule ],
+      moddleExtensions: { zeebe: zeebeModdleDescriptors }
+    }));
+
+
+    (singleStart ? it.only : it)('should load', inject(function(elementRegistry) {
+
+      // given
+      const element = elementRegistry.get('SendGridTask');
+      const gfx = elementRegistry.getGraphics(element);
+
+      // when
+      const iconGfx = getImage(gfx);
+
+      // then
+      expect(iconGfx).to.exist;
+    }));
+  });
+
 
   describe('integration support', function() {
 
@@ -175,7 +199,7 @@ describe('elementTemplateIconRenderer', function() {
     }));
 
 
-    (singleStart ? it.only : it)('should render icon', inject(function(elementRegistry) {
+    it('should render icon', inject(function(elementRegistry) {
 
       // given
       const element = elementRegistry.get('SendGridTask');
