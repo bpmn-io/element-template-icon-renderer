@@ -4,6 +4,7 @@ import BaseRenderer from 'diagram-js/lib/draw/BaseRenderer';
 
 import {
   getBusinessObject,
+  is,
   isAny
 } from 'bpmn-js/lib/util/ModelUtil';
 
@@ -24,7 +25,6 @@ import {
 
 var HIGH_PRIORITY = 1250,
     ICON_BOX_SIZE = 14,
-    ICON_CIRCLE_RADIUS = Math.ceil(ICON_BOX_SIZE / Math.sqrt(2)),
     PADDING = {
       x: 5,
       y: 5
@@ -70,32 +70,45 @@ ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element, a
 
   var icon = this._getIcon(element);
 
-  var size = ICON_BOX_SIZE,
-      r = ICON_CIRCLE_RADIUS;
+  var size = ICON_BOX_SIZE;
 
   var circleCenterPosition = {
-    x: element.width - PADDING.x,
-    y: PADDING.y
+    x: element.width - size + PADDING.x,
+    y: -PADDING.y
   };
 
-  var outline = svgCreate('circle', {
-    cx: circleCenterPosition.x,
-    cy: circleCenterPosition.y,
-    r,
-    fill: 'white',
-    stroke: 'black'
-  });
-
   var img = svgCreate('image');
+
   svgAttr(img, {
     href: icon,
     width: size,
-    height: size,
-    x: circleCenterPosition.x - size / 2,
-    y: circleCenterPosition.y - size / 2
+    height: size
   });
 
-  svgAppend(parentGfx, outline);
+  if (is(element, 'bpmn:Activity')) {
+    svgAttr(img, {
+      x: element.width - size - PADDING.x,
+      y: PADDING.y
+    });
+  } else {
+    svgAttr(img, {
+      ...circleCenterPosition
+    });
+
+    var outline = svgCreate('rect', {
+      x: circleCenterPosition.x - 1,
+      y: circleCenterPosition.y - 1,
+      width: size + 2,
+      height: size + 2,
+      rx: 2,
+      ry: 2,
+      fill: 'white',
+      stroke: 'black'
+    });
+
+    svgAppend(parentGfx, outline);
+  }
+
   svgAppend(parentGfx, img);
 
   return gfx;
