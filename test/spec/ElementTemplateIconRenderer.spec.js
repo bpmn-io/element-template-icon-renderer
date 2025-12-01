@@ -28,6 +28,7 @@ import {
 } from '../../src/util';
 
 import diagramXML from '../fixtures/icons.bpmn';
+import complexXML from '../fixtures/complex.bpmn';
 
 const singleStart = window.__env__ && window.__env__.SINGLE_START === 'renderer';
 
@@ -58,7 +59,7 @@ describe('elementTemplateIconRenderer', function() {
 
   describe('example', function() {
 
-    beforeEach(bootstrapModeler(diagramXML, {
+    beforeEach(bootstrapModeler(complexXML, {
       additionalModules: [ RendererModule ],
       moddleExtensions: { zeebe: zeebeModdleDescriptors }
     }));
@@ -67,7 +68,7 @@ describe('elementTemplateIconRenderer', function() {
     (singleStart ? it.only : it)('should load', inject(function(elementRegistry) {
 
       // given
-      const element = elementRegistry.get('SendGridTask');
+      const element = elementRegistry.get('StartEvent_1');
       const gfx = elementRegistry.getGraphics(element);
 
       // when
