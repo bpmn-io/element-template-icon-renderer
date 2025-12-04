@@ -72,11 +72,6 @@ ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element, a
 
   var size = ICON_BOX_SIZE;
 
-  var circleCenterPosition = {
-    x: element.width - size + PADDING.x,
-    y: -PADDING.y
-  };
-
   var img = svgCreate('image');
 
   svgAttr(img, {
@@ -87,19 +82,26 @@ ElementTemplateIconRenderer.prototype.drawShape = function(parentGfx, element, a
 
   if (is(element, 'bpmn:Activity')) {
     svgAttr(img, {
-      x: element.width - size - PADDING.x,
-      y: PADDING.y
+      x: element.width - 18 - PADDING.x,
+      y: PADDING.y - 2,
+      width: 18,
+      height: 18
     });
   } else {
+    var circleCenterPosition = {
+      x: element.width - size + PADDING.x,
+      y: -PADDING.y - 2
+    };
+
     svgAttr(img, {
       ...circleCenterPosition
     });
 
     var outline = svgCreate('rect', {
-      x: circleCenterPosition.x - 1,
-      y: circleCenterPosition.y - 1,
-      width: size + 2,
-      height: size + 2,
+      x: circleCenterPosition.x - 2,
+      y: circleCenterPosition.y - 2,
+      width: size + 4,
+      height: size + 4,
       rx: 2,
       ry: 2,
       fill: 'white',
