@@ -6,6 +6,10 @@ All notable changes to [@bpmn-io/element-template-icon-renderer](https://github.
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.0.1
+
+* `DEPS`: update to `tiny-svg@4`
+
 ## 1.0.0
 
 _Re-release of `v0.6.0`._
